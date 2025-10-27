@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: bbydi-youth-track:dev
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app:cached
+      - /app/node_modules
+    command: npm run dev
+    restart: unless-stopped
+# Notes:
+# - `npm run dev` should start a development server (e.g., nodemon) in package.json.
+# - The Dockerfile used here is `./.Dockerfile` (matches repository state). If you prefer
+#   to use `Dockerfile` without the dot, change this path accordingly.

@@ -1,0 +1,17 @@
+node_modules
+dist
+.nyc_output
+coverage
+.env
+.env.*
+npm-debug.log
+Dockerfile
+.dockerignore
+.vscode
+.idea
+.git
+*.log
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
