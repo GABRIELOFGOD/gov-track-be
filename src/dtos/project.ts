@@ -1,5 +1,5 @@
-import { IsDateString, IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
-import { Category } from "src/types";
+import { IsDateString, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { Category } from "../types/category";
 
 export class CreateProjectDto {
   @IsString()
@@ -12,7 +12,7 @@ export class CreateProjectDto {
 
   @IsEnum(Category)
   @IsNotEmpty()
-  category: string;
+  category: Category;
 
   @IsString()
   @IsNotEmpty()
@@ -27,8 +27,8 @@ export class CreateProjectDto {
   lga: string;
 
   @IsOptional()
-  @IsString()
-  budget: string;
+  @IsNumber()
+  budget: number;
 
   @IsOptional()
   @IsString()

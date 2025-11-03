@@ -1,21 +1,20 @@
 import { DataSource } from "typeorm";
-import { config } from "dotenv";
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "./env";
+import { Project } from "../entities/project.entity";
 
-config();
 export const dataSource = new DataSource({
   type: "postgres",
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT) || 5432,
-  username: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  entities: [],
+  host: DB_HOST || 'localhost',
+  port: Number(DB_PORT) || 5432,
+  username: DB_USER || 'postgres',
+  password: DB_PASSWORD,
+  database: DB_NAME,
+  entities: [Project],
   synchronize: true,
 });
 
 export const initializeDatasource = () => {
-  console.log("password", process.env.DB_PASSWORD);
   dataSource.initialize()
     .then(() => {console.log("Data source initialized successfully.")})
-    .catch((error) => {console.log("Datasource initialization failed", error)})
+    .catch((error) => {console.log("Datasource initialization failed", error)});
 };

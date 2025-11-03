@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is the backend project for the BBYDI youth gov tracking project",
   "main": "index.js",
+  "_moduleAliases": {
+    "src": "dist"
+  },
   "scripts": {
     "start:dev": "nodemon src/index.ts",
     "build": "tsc -p tsconfig.json",
@@ -28,6 +31,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "module-alias": "^2.2.3",
     "mongoose": "^8.18.0",
     "mysql2": "^3.15.0",
     "pg": "^8.16.3",

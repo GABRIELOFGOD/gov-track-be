@@ -30,6 +30,7 @@ export const errorHandler = (
 ) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
+  err.message = err.message;
 
   // Handle validation errors
   if (err.name === 'ValidationError') {
@@ -67,8 +68,9 @@ export const errorHandler = (
   }
 
   // Production error response
+  console.log("Error", err);
   return res.status(err.statusCode).json({
     status: err.status,
-    message: 'Something went wrong',
+    message: err.message ? err.message : 'Something went wrong',
   });
 };
