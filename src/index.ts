@@ -9,7 +9,9 @@ import dbConfig from "./configs/database.config";
 
 const app = express();
 dbConfig();
-config();
+config({
+  path: `.env.${process.env.NODE_ENV || 'development'}.local`,
+});
 
 initializeDatasource();
 
