@@ -10,7 +10,7 @@ export const dataSource = new DataSource({
   password: DB_PASSWORD,
   database: DB_NAME,
   entities: [Project],
-  synchronize: true,
+  synchronize: false,
 });
 
 export const initializeDatasource = () => {

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start:dev": "nodemon src/index.ts",
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc",
     "start": "node dist/index.js",
     "build:production": "docker build -f Dockerfile -t bbydi-youth-track:latest .",
     "production": "docker run --rm -p 8000:8000 --env-file .env bbydi-youth-track:latest",
